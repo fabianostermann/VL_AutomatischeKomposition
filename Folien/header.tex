@@ -1,0 +1,150 @@
+% !TeX root = MDA_VL_Ostermann_Folien.tex
+\usepackage[utf8]{inputenc}
+\usepackage[english, german, ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[normalem]{ulem}
+
+\usepackage{hyperref}
+\usepackage[autostyle=true,german=quotes]{csquotes}
+\usepackage[square, numbers]{natbib}%numbers
+\let\oldcitep\citep
+\renewcommand{\citep}[2][]{$^\text{\oldcitep[#1]{#2}}$}
+
+\usepackage[]{todonotes}
+\newcommand{\missingfig}[2][]{\scalebox{.5}{\missingfigure[figwidth=7cm,figheight=3.5cm, #1]{#2}}}
+\newcommand{\todobox}[2][orange]{\todo[inline,color=#1]{#2}}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{multirow}
+\usepackage{csvsimple} % to load csv files
+
+%%%%% Infoboxen %%%%%
+\usepackage{mdframed}
+\newenvironment{infobox}[2][\textwidth]{
+% [#1]=width, {#2}=titel
+	\mdfsetup{%
+		frametitle={%
+			\tikz[baseline=(current bounding box.east),outer sep=0pt]
+			\node[anchor=east,rectangle,fill=TUDoGreen,text=white]
+			{#2};
+		},
+		%innertopmargin=10pt,
+		linecolor=TUDoGreen,%
+		linewidth=2pt,%topline=true,%
+		frametitleaboveskip=-8pt,%
+	}
+	\begin{minipage}{#1}
+	\begin{mdframed}[]\relax%
+	}{
+	\end{mdframed}
+	\end{minipage}
+}
+
+%%%%% SI-Einheiten %%%%%%
+\usepackage[detect-weight]{siunitx}%decimalsymbol=comma
+
+\usepackage{romannum}
+
+\usepackage{amssymb}
+\usepackage{marvosym}
+\usepackage{wasysym}
+%\usepackage{MnSymbol}
+%\usepackage{physics} % vector with \va \vb or \va* \vb*
+
+\usepackage{amssymb}
+\usepackage{multimedia}
+
+%%%%%% simple audio player that triggers default media player (e.g. vlc)
+% former on symbol: \raisebox{1pt}{$\blacktriangleright$}
+% former off symbol: $\blacksquare$
+\newcommand{\audioplayer}[1]{\mbox{\sound[externalviewer]{\faVolumeUp}{#1}~\sound[externalviewer]{\faVolumeOff}{audio/stop.mp3}}}
+
+
+%\definecolor{TUDoGreen}{RGB}{132,184,24} % real tu green
+\definecolor{TUDoGreen}{RGB}{110,165,20} % darker tu green
+\colorlet{BoxCol}{TUDoGreen}
+
+%%%% Notes in Beamer:
+%https://tex.stackexchange.com/questions/48402/personal-notes-when-preparing-a-talk-with-latex-beamer-class
+\ifshownotes
+	\setbeamertemplate{note page}[plain]% default, plain, compress
+	\usepackage{pgfpages}
+	%\setbeameroption{show notes}
+	\setbeameroption{show notes on second screen=right}
+	\let\notebak\note
+	\renewcommand{\note}[1]{\notebak{
+	\begin{frame}\begin{quote}\sf\scriptsize #1 \addtocounter{framenumber}{-1}\end{quote}\end{frame}
+	}}
+\fi
+
+
+\title{\vspace{-2cm}\newline\includegraphics[height=0.08\textheight]{logos/TU_Dortmund.jpg}\hspace{0.33\textwidth}\includegraphics[height=0.08\textheight]{logos/Logo_50-Jahre-Informatik.pdf}\vspace{0.5cm}\newline\thetitle}
+\author{\theauthor}
+% insert correct institute name
+%\email{fabian.ostermann@tu-dortmund.de}
+\date{\small\thedate}
+\institute{\theinstitute}
+\subtitle{\vspace{0.25cm}\thesubtitle\vspace{-0.25cm}}
+%\titlegraphic{}
+
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercovered{invisible}
+\usecolortheme[named=TUDoGreen]{structure}
+\setbeamertemplate{frametitle}[default][center]
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\normalsize,series=\bfseries}
+
+\usepackage{multicol}
+
+%%%%%% draw at for drawing objects at specific positions
+% https://tex.stackexchange.com/questions/82463/how-to-position-a-beamer-box-in-a-slide
+\usepackage[absolute,overlay]{textpos}
+\newcommand{\drawat}[2]{ % #1=x,y, #2=content
+	\begin{textblock*}{0mm}(#1)
+		#2
+	\end{textblock*}
+}
+%%% the grid %%%
+\usepackage[texcoord,
+%grid,
+gridunit=mm,gridcolor=black!10,subgridcolor=black!5,gridBG=false]{eso-pic}
+
+%%%% make a file that lists all frametitles
+\newwrite\slideinfofile
+\immediate\openout\slideinfofile=slideinfo.txt
+%\newcounter{SlideNumber}
+\AtBeginEnvironment{frame}{
+		\immediate\write\slideinfofile{%\theSlideNumber
+		[\insertframenumber] \insertframetitle}
+}
+
+%%%%% Kommando für automatisch einblendendes Inhaltsverzeichnis am Anfang jeder Section
+\newcommand{\toc}[1][currentsection]{
+	\begin{frame}{Übersicht}
+		\only<1>{\tableofcontents[]}
+		\only<2->{\tableofcontents[#1]}
+	\end{frame}
+}
+\AtBeginSection[]{\toc}
+
+%%% Useful Symbols %%%%
+\usepackage{fontawesome}
+\newcommand{\warnSign}{{\color{TUDoGreen}\faWarning}}
+\newcommand{\conclude}{{\color{TUDoGreen}$\boldsymbol{\rightarrow}$}}
+\newcommand{\Conclude}{{\color{TUDoGreen}$\boldsymbol{\Rightarrow}$}}
+\newcommand{\questSign}{{\color{TUDoGreen}\fbox{\textbf{?}}}}
+\newcommand{\attentionSign}{{\color{TUDoGreen}\fbox{\textbf{!}}}}
+\newcommand{\ideaSign}{{\color{TUDoGreen}\fbox{\textbf{\faLightbulbO}}}}
+
+\usepackage{musicography}
+\renewcommand{\musEighth}{\musFlaggedNote{\symbol{7}}{\symbol{40}}}
+%\musHalf already working
+
