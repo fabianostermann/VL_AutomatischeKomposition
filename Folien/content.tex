@@ -1,6 +1,5 @@
-% !TeX root = MDA_VL_Ostermann_Folien.tex
+% !TeX root = MDA_VL_Ostermann.tex
 % !TeX spellcheck = de_DE_frami
-
 \begin{frame}
 	\centering
 	{\color{TUDoGreen} \huge\textbf{Hallo!}}\\
@@ -12,12 +11,18 @@
 		\normalsize
 		\item Doktorand bei Prof. Rudolph am LS\,11 (Computational Intelligence)\\
 		\item B.Sc. und M.Sc. Informatik an der TU Dortmund\\
-		\item Studium Jazzgitarre an der Folkwang Univ. Essen
+		\item Studium Jazzgitarre an der Folkwang UdK Essen
+		\item Lehre
+		\begin{itemize}
+			\item Fachprojekt \emph{Digital Entertainment Technologies}
+			\item Fachprojekt \emph{Musikinformatik}
+			\item Übung zu \emph{Praktische Optimierung}
+		\end{itemize}
 		\item Forschung zu
 		\begin{itemize}
 			\item Computer Music
-			\item Generative Artificial Intelligence
-			\item Procedural Content Generation in Games
+			\item Generative AI (Evolutionary Algorithms \& Reinforcement Learning)
+			\item AI \& Procedural Content Generation in Games
 		\end{itemize}
 	\end{itemize}
 \end{frame}
@@ -119,7 +124,7 @@
 		\item \enquote{Austesten, was geht, um zu verstehen, was (vielleicht) nicht geht...?} \\
 		~~~\conclude~Was sind die rein menschlichen Qualitäten?
 		\medskip
-		\item[\Conclude] Hier und heute: wissenschaftliche (nüchterne) Betrachtung
+		\item[\Conclude] \underline{Heute}: wissenschaftliche (nüchterne) Betrachtung unterschiedlicher Verfahren
 	\end{itemize}
 	%TODO \vspace{-3cm}\hfill\missingfig{Bild von einem Roboter der Musik spielt}
 	
@@ -174,7 +179,7 @@
 	}
 	\end{multicols}
 
-	\hfill \footnotesize Digitalisierte Version: \href{https://www.buschs.de/Mozart/Mozart.html}{\texttt{buschs.de/Mozart/Mozart.html}}
+	\hfill \footnotesize Digitalisierte Version: \href{https://www.buschs.de/Mozart/}{\texttt{https://www.buschs.de/Mozart/}}
 	
 \end{frame}
 
@@ -233,23 +238,24 @@
 	~~~~~\conclude~Komplexität überschreitet später \textbf{manuelle \enquote{Ausrechenbarkeit}}\\
 	\medskip
 	
-	\enquote{Achorripsis} (1957) basiert auf der Poisson-Verteilung $P_\lambda(k) = \frac{\lambda^k}{k!}e^{-k}$
+	\enquote{Achorripsis} (1957) basiert auf der Poisson-Verteilung $P_\lambda(k) = \frac{\lambda^k}{k!}e^{-\lambda}$
+	% https://www.iannis-xenakis.org/en/stochastic-music/
 	
 	\includegraphics[width=.33\textwidth]{img/Achorripsis_Noten.png}
 	~~\includegraphics[width=.6\textwidth]{img/Achorripsis_CellMatrix_from_FormalizedMusic.png}
-	
 	
 	%Erklärung und Literaturverweise: second.wiki/wiki/achorripsis
 	%Score: youtube.com/watch?v=rEyqJPW3Hi8
 	%Visualisierung: youtube.com/watch?v=WasFTDq0dJI
 \end{frame}
 
-\begin{frame}{Geschichte mit Computer}{Illiac Suite (String Quartet No. 4)}
+\begin{frame}[t]{Geschichte mit Computer}{Illiac Suite (String Quartet No. 4)}
 	
-	\drawat{11.5cm,1.5cm}{\includegraphics[width=3.5cm]{img/hiller.jpg}}
+	\drawat{11.5cm,2.5cm}{\includegraphics[width=4cm]{img/hiller.jpg}}
+	\drawat{11.5cm,6cm}{\includegraphics[width=4cm]{img/Hiller-exp1-text.png}}
 	
 	\begin{itemize}
-		\item Gilt als \enquote{erster echter Versuch}
+		\item Gilt als \enquote{erster, ernsthafter Versuch} computer-gestützter Komposition
 		\item 4 Sätze:
 		\begin{enumerate}
 			\item \emph{cantus firmi}
@@ -379,13 +385,23 @@
 \begin{frame}{II. \dimTwoTitle}{Fraktale (deterministisch)}
 	\drawat{2cm,3cm}{\parbox{3cm}{Romanesco\\(Blumenkohl)}}
 	\begin{center}
-		~~~~~~\includegraphics[width=.46\textwidth]{img/Romanesco_broccoli.jpg}
+		~~~~~~\includegraphics[width=.55\textwidth]{img/Romanesco_broccoli.jpg}
 	\end{center}
-	\hfill\small \underline{Empfehlung}: Gary Lee Nelson -- \enquote{Fractal Mountains} (1992)\\
-	\hfill\conclude~96 Tonschritte pro Oktave\\
+\end{frame}
+
+\begin{frame}{II. \dimTwoTitle}{Gary Lee Nelson -- \enquote{Fractal Mountains} (1988--89)}
+	Beispiel zur Erzeugung von Tonhöhen mit Fraktalen:
+	
+	\begin{center}
+	\includegraphics[width=.8\textwidth]{img/Fractal_Mointain.png}
+	\end{center}
+	
+	\conclude~96 Tonschritte pro Oktave\\
+	Weitere Fraktalfunktionen für Tonlänge und Lautstärke
+	
 	\hfill\tiny\url{youtube.com/watch?v=KV3V3c8mqGs}\\
 	\hfill\url{timara.oberlin.edu/gnelson/PapersPDF/GNfract.pdf}
-
+	
 \end{frame}
 
 \begin{frame}{II. \dimTwoTitle}{Markov-Kette (stochastisch)}
@@ -411,15 +427,15 @@
 		\fbox{\includegraphics[width=.5\textwidth]{lily/HaenschenKlein.pdf}}
 	}
 	\parbox{.39\textwidth}{
-		48 Noten\\
-		6x C, 12x D, 15x E, 6x F, 11x G\\
+		49 Noten\\
+		5x C, 12x D, 15x E, 6x F, 11x G\\
 		
 		\begin{itemize}
-			\item $P(X=C) = \frac{6}{48} = 12.5\%$
-			\item $P(X=D) = \frac{12}{48} = 25.0\%$
-			\item $P(X=E) = \frac{15}{48} = 31.25\%$
-			\item $P(X=F) = \frac{6}{48} = 12.5\%$
-			\item $P(X=G) = \frac{11}{48} = 22.92\%$
+			\item $P(X=C) = \frac{5}{49} = 10.2\%$
+			\item $P(X=D) = \frac{12}{49} = 24.5\%$
+			\item $P(X=E) = \frac{15}{49} = 30.6\%$
+			\item $P(X=F) = \frac{6}{49} = 12.2\%$
+			\item $P(X=G) = \frac{11}{49} = 22.4\%$
 		\end{itemize}
 	}
 
@@ -445,17 +461,36 @@
 			\begin{itemize}
 				\item $P(X_{t+1} = C | X_{t} = C) = 0$
 				\item[] ~~$\vdots$
-				\item $P(X_{t+1} = G | X_{t} = G) = \frac{6}{47} \small= 12.77\%$
+				\item $P(X_{t+1} = G | X_{t} = G) = \frac{6}{48} \small= 12.5\%$
 				\item[] ~~$\vdots$
-				\item $P(X_{t+1} = E | X_{t} = G) = \frac{3}{47} \small= 6.38\%$
+				\item $P(X_{t+1} = E | X_{t} = G) = \frac{3}{48} \small= 6.25\%$
 			\end{itemize}
 		}
 	}
 
 	\medskip
-	\hspace{4.5cm}\underline{Erweiterung} möglich, z.B. relative Intervalle, Rhythmus, ...\\
+	\hspace{4.5cm}\underline{Erweiterung}, z.B. auf relative Intervalle, Rhythmus, ...\\
+	\hspace{4.5cm}\underline{Abhängigkeiten erhöhen}: Markow-Kette n-ter Ordnung\\
 	\smallskip
 	\hspace{4.5cm}\underline{Lernverfahren}: \emph{Hidden Markov Model}
+	
+\end{frame}
+
+\begin{frame}{II. \dimTwoTitle}{Markov-Kette (Hörbeispiele)}
+	
+	Beethoven \enquote{Für Elise} \audioplayer{audio/elise_detailed.mp3}\\
+	\bigskip
+	Markov-Kette~10.~Ordnung \audioplayer{audio/elise_detailed_markov_10.mp3}\\
+	\smallskip
+	Markov-Kette~~5.~Ordnung \audioplayer{audio/elise_detailed_markov_5.mp3}\\
+	\smallskip
+	Markov-Kette~~3.~Ordnung \audioplayer{audio/elise_detailed_markov_3.mp3}\\
+	\smallskip
+	Markov-Kette~~1.~Ordnung \audioplayer{audio/elise_detailed_markov_1.mp3}\\
+	
+	\vfill\footnotesize
+	Jupyter-Notebook zur Reproduktion:\\
+	\url{https://github.com/lpensel/multiply-surrender/tree/master/Markov_Music}
 \end{frame}
 
 \begin{frame}{III. \dimThreeTitle}{Kemal Ebcio\u{g}lu: CHORAL Project (regelbasiert)}
@@ -519,18 +554,19 @@
 \end{frame}
 
 \begin{frame}[t]{III. \dimThreeTitle}{Lernverfahren (datenbasiert)}
-		\vspace{-1.5cm}
-		\parbox{.49\textwidth}{
-			\underline{Künstliches Neuron}
-			\medskip
+	\parbox[c]{.49\textwidth}{
+		\underline{Künstliches Neuron}
+		\medskip
 
-			\includegraphics[width=0.49\textwidth]{img/ArtificialNeuronModel_deutsch.png}
-		}
-		\parbox{.49\textwidth}{
-			\vspace{3cm}
-			\underline{Neuronales Netz} (Mehrlagiges Perzeptron)
-			\includegraphics[width=0.49\textwidth]{img/MLP-Theorie.png}
-		}
+		\includegraphics[width=0.49\textwidth]{img/ArtificialNeuronModel_deutsch.png}
+		
+		\[ o_j = \varphi ( \theta_j + \sum_{i=1}^n w_{ij} x_{ij} ) \]
+	}
+	\parbox[c]{.49\textwidth}{
+		\vspace{1.5cm}
+		\underline{Neuronales Netz} (Mehrlagiges Perzeptron)
+		\includegraphics[width=0.49\textwidth]{img/MLP-Theorie.png}
+	}
 \end{frame}
 
 \begin{frame}{IV. \dimFourTitle}
@@ -545,14 +581,16 @@
 	
 		(2) \underline{Audio-Synthese}
 		\includegraphics[width=.32\textwidth]{img/puredata.jpg}
-		Pure Data (VPL)
+		Pure Data\\
+		
+		{\small Visual Programming}
 	\columnbreak
 	
 		(3) \underline{Wellenform-Synthese}
 		\includegraphics[width=.34\textwidth]{img/PCM_Waveform.png}
 		OpenAI Jukebox\\
 		
-		\url{openai.com/blog/jukebox/}
+		{\small\url{openai.com/blog/jukebox/}}
 	\end{multicols}
 \end{frame}
 
@@ -598,7 +636,7 @@
 	}
 
 	\centering
-	~~~~~~~~~~~~\audioplayer{audio/DeepBach-perfectfake01.midi}
+	~~~~~~~~~~~~\audioplayer{audio/DeepBach-perfectfake01.mp3}
 \end{frame}
 
 \begin{frame}{V. \dimFiveTitle}{Originale Komposition: Iamus}
@@ -632,7 +670,7 @@
 		\includegraphics[width=.5\textwidth]{img/EvoAlg_Scheme.png}
 		
 		\columnbreak
-		\begin{itemize}
+		\begin{itemize}\small
 			\item[Initialisierung] Zufällig oder \enquote{geschickt}
 			\item[Population] enthält eine Menge an \emph{Individuen}\\
 													\hfill(z.B. Melodien)
@@ -643,6 +681,44 @@
 			\item[Nachkommen] bilden eine nächste Generation in der Population
 		\end{itemize}
 	\end{multicols}
+	
+	\hfill Conference on  \textbf{AI in Music, Sound, Art and Design} (EvoMUSART)\\
+	\small\hfill\url{https://www.evostar.org/2025/evomusart/}
+\end{frame}
+
+
+\begin{frame}{V. \dimFiveTitle}{EAR Drummer (2017)}
+	\newcommand{\TAB}{\hspace{5mm}}
+	\newcommand{\DS}{\displaystyle}
+	\small
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\includegraphics[width=\textwidth]{img/EarDrummer_genotype.png}
+			Fitness ist Grad der musikalischen Passung:\\
+			\hspace{2.5cm} \fbox{\emph{human solo} $\overset{?}{=}$ \emph{drum pattern}}
+		\end{column}
+		\begin{column}{.6\textwidth}
+			\underline{Umsetzung}: Heuristische Regeln auf Notenstatistiken:
+			\begin{enumerate}\scriptsize\setlength{\itemsep}{0pt}
+				\item \textbf{length (leng)}: Duration of a note
+				\item \textbf{keynumber (key)}: Mapping of a note to a key of the piano
+				\item \textbf{volume (vol)}: Loudness of a note
+				\item \textbf{interval (int)}: Interval between two consecutive notes
+				\item \textbf{distance (dist)}: Duration between the start time of two consecutive notes
+				\item \textbf{gap}:  Duration between end time of a note and start time of the consecutive note
+			\end{enumerate}
+			
+			Drei Regelsorten:
+			\begin{itemize}\scriptsize\setlength{\itemsep}{0pt}\setlength{\itemindent}{.7cm}
+				\item[Keep:] Erhalte Ausgangspattern
+				\item[Reaction:] Bewerte \emph{drum pattern} nach einer heuristischen Regel unter Bezug auf Muster in der Notenstatistik
+				\item[Random:] Rauschen erzeugt mehr zufälliges Verhalten
+			\end{itemize}
+		\end{column}
+	\end{columns}
+
+	\scriptsize\raggedleft\vfill
+	\textbf{Demo: }\url{https://github.com/FabianOstermann/EAR-Drummer}
 \end{frame}
 
 \begin{frame}[t]{VI. \dimSixTitle}{Human-In-The-Loop: GenJam (1994)}
@@ -666,6 +742,8 @@
 			\end{itemize}
 		}
 	}
+	
+	{GenJam at New City Art, 2003} \audioplayer{audio/GenJam_at_New_City_Art,_2003_[ACT8Sy6tNZI].mp4}
 \end{frame}
 
 \begin{frame}{VI. \dimSixTitle}{Adaptive Videospielmusik}
@@ -690,7 +768,19 @@
 	
 	\medskip
 	\hfill\underline{Erweiterungen}: Fade In/Out, Transitions, Score Branching, ...
+\end{frame}
+
+\begin{frame}{VI. \dimSixTitle}{iMuse in \emph{Monkey Island 2} (1991)}
+	\includegraphics[width=0.8\textwidth]{img/woodtick_markered.png}\vspace{-.375\textheight}
 	
+	\hfill\includegraphics[height=.7\textheight]{img/woodtick_score.jpg}
+	\vspace{-2cm}
+	
+	Alle Transitionen sind manuell komponiert\\
+	\conclude~Nur bei \emph{Blockbuster}-Produktionen realistisch\\
+	
+	\bigskip\small
+	~~~~~~~~{Michael Z. Land \enquote{Woodtick Theme}} \audioplayer{audio/MI2_Wootick.mp4}
 \end{frame}
 
 \begin{frame}[t]{VI. \dimSixTitle}{Laptopmusik, Algorave, Live Coding}
@@ -707,13 +797,18 @@
 \end{center}
 
 \underline{Forschung}: Conference on \textbf{AI Music Creativity}\\
-\hspace{2.2cm}\url{2022.aimusiccreativity.org/}
+\hspace{2.2cm}\url{https://aimusiccreativity.org/conferences/}
 
 \vspace{-1.2cm}
 \tiny
 \hfill \textcopyright Photos: Antonio Roberts\\
 \hfill \url{noahstroehle.com/amplifying-presence}\\
 \hfill \url{-algorave-at-sxsw-2019/}
+\end{frame}
+
+\begin{frame}[t]{VI. \dimSixTitle}{MuseBots}
+	\todo[inline]{TODO!}
+	
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -759,7 +854,7 @@
 	\bigskip\medskip
 	\warnSign~Problematisch bei statistischen Erhebungen:\\
 	\smallskip
-	~~~\emph{Kategorische Ablehnung} (neg. bias) gegenüber KI-Musik\\
+	~~~\emph{Kategorische Ablehnung} (neg. bias) gegenüber KI-Musik\todo[inline]{Ansani et al. 2025; White et al. 2025; Shank et. al. 2023}%\\
 	\smallskip
 	\conclude~kann bereits bei Ankündigung/Bewerbung einer Studie problematisch sein
 \end{frame}
@@ -789,6 +884,19 @@
 	\vfill\hfill \footnotesize $^*$etwa $10^6$--$10^9$ Neuronen
 \end{frame}
 
+\begin{frame}{Variational Auto-Encoder}{(VAE)}
+	\missingfigure{Show Neural network with bottleneck}
+	\includegraphics[width=0.49\textwidth]{img/MLP-Theorie.png}
+\end{frame}
+
+\begin{frame}{Generative Adversarial Network}{(GAN)}
+	\centering
+	\includegraphics[width=0.7\textwidth]{img/GAN_template.png}
+	
+	\vfill
+	\hfill\scriptsize Bildquelle: \url{https://ijpds.org/article/view/2158}
+\end{frame}
+
 \begin{frame}{Deep Learning-Systeme}
 		Einordnung:
 		\begin{itemize}
@@ -809,7 +917,7 @@
 
 \begin{frame}{Hierarchische Kategorisierung nach Methoden}{(Stand 2014)}
 	\centering
-	\includegraphics<1>[height=.75\textheight]{img/AI_Methods_For_AlgoComp_Overview.png}\includegraphics<2>[height=.8\textheight]{img/AI_Methods_For_AlgoComp_Overview_mark.png}\citep{FernandezVico2013}
+	\includegraphics<1>[height=.75\textheight]{img/AI_Methods_For_AlgoComp_Overview.png}\includegraphics<2>[height=.75\textheight]{img/AI_Methods_For_AlgoComp_Overview_mark.png}\citep{FernandezVico2013}
 \end{frame}
 
 \begin{frame}{Die Zukunft?}{Prompt-Systeme}
@@ -825,13 +933,29 @@
 	\includegraphics[width=1.7cm]{img/Dalle2-AstronautRidingHorse/9.jpg}
 	
 	\medskip
-	Video-Empfehlung:~~~ {\tiny(\url{youtube.com/watch?v=QN0DDD7B3oU})}\\
-	\smallskip
-	\includegraphics[width=.8\textwidth]{img/DavidBruce_Dalle2OfMusic.png}
+	Prompt-basierte Modelle für Musik existieren, z.B. MusicLM \& StableAudio.\\ 
 	
-	
-	\hfill Spannend bleibt: \enquote{Was werden diese Systeme nicht lernen können?}\hspace{-.5cm}
-	
-	%TODO: Video zu ChatGPT komponiert	
+	\medskip
+	\hfill Spannend bleibt: \enquote{Was werden diese Systeme nicht lernen können?}\hspace{-.5cm}	
 \end{frame}
 
+\begin{frame}
+	\todo[inline]{Suno \& Udio \conclude GEMA gewinnt Urheberrechtsstreit}
+	\missingfigure{Zeitungsartikel}
+\end{frame}
+
+\begin{frame}[t]{Originalität wird zum Problem}{Reinforcement Learning with Human Feedback}
+	\begin{center}
+		\includegraphics[height=.8\textheight]{img/RLHF-icon.png}
+	\end{center}
+	\vspace{-3cm}
+	\hfill\conclude~Verhindert \emph{model collapse} \cite{?}
+\end{frame}
+
+\begin{frame}{Held Horizon (2025)}{AI–human co-creation experiment on composing for choir}
+	\centering
+	\includegraphics[width=.95\textwidth]{img/HeldHorizon_SAB_crop.png}
+	\vfill
+	Erläuterungen und Transkript des \enquote{Kompositionsdialogs}:\\
+	\hfill\scriptsize\url{http://fabianos.org/content/2025/09/11/Held-Horizon}
+\end{frame}
