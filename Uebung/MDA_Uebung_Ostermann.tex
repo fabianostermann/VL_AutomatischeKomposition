@@ -4,8 +4,8 @@
 \providecommand{\dozent}{Fabian Ostermann}
 \providecommand{\titel}{Übungsblatt zu\\
 	-- Automatische Komposition --}
-\providecommand{\untertitel}{Vorlesung Musikdatenanalyse\\WiSe\,22/23}
-\providecommand{\ausgabedatum}{27.01.2023}
+\providecommand{\untertitel}{Vorlesung Musikdatenanalyse\\WiSe\,25/26}
+\providecommand{\ausgabedatum}{29.01.2026}
 
 \usepackage{todonotes}
 \newcommand{\todobox}[2][]{\todo[inline, #1]{#2}}
@@ -37,7 +37,7 @@
 		Als Eingabe soll die Anzahl an Interationen $n$ übergeben werden.
 	\end{teilaufgabe}
 	\begin{tipp}
-		Arbeiten Sie mit Strings. {\emph{Achtung}}: String-Funktionen wie \texttt{replace} oder \texttt{replaceAll} sind hier meist nicht hilfreich!
+		Arbeiten Sie mit Strings. {\emph{Achtung}}: String-Funktionen wie \texttt{replace} oder \texttt{replaceAll} sind hier meist \textbf{nicht} hilfreich!
 	\end{tipp}
 	
 	\begin{teilaufgabe}
@@ -127,7 +127,8 @@
 			\end{cases}
 		\]
 		
-		Ein Beispiel: $A(\{c,d,e\}) = f(c) + f(d) + f(e) = 1+(-1)+1 = 1$
+		Ein Beispiel: $F(\{c,d,e\}) = f(c) + f(d) + f(e) = 1+(-1)+1 = 1$\\
+		Daraus folgt: $A(\{c,d,e\}) = C-Dur-Akkord$
 		
 		\medskip
 		Implementierung: siehe \texttt{loesung/aufgabe3/expertsystem-c.py}

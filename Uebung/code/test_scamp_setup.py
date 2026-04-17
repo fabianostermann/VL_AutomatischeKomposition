@@ -10,6 +10,7 @@ s.start_transcribing()
 
 ### Hier eigenen Generierungscode einfügen: ###
 for i in [60,62,64,65,67]:
+    print("Play MIDI note:", i)
     piano.play_note(i,0.5,1)
 ################################################
     
