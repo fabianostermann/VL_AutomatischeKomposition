@@ -563,9 +563,16 @@
 		\[ o_j = \varphi ( \theta_j + \sum_{i=1}^n w_{ij} x_{ij} ) \]
 	}
 	\parbox[c]{.49\textwidth}{
-		\vspace{1.5cm}
-		\underline{Neuronales Netz} (Mehrlagiges Perzeptron)
+		\vspace{.5cm}
+		\underline{Neuronales Netz}
+		\smallskip
+		\\Mehrlagiges Perzeptron (MLP)\\
 		\includegraphics[width=0.49\textwidth]{img/MLP-Theorie.png}
+		
+		\raggedleft
+		Lernt Merkmale \emph{quasi} selbstständig\\
+		\smallskip
+		\conclude~\emph{Datenart} nahezu irrelevant
 	}
 \end{frame}
 
@@ -723,7 +730,7 @@
 
 \begin{frame}[t]{VI. \dimSixTitle}{Human-In-The-Loop: GenJam (1994)}
 	
-	Al Biles modellierte GenJam \cite{GenJam1994} als künstlichen \textbf{Musikschüler},\\
+	Al Biles modellierte GenJam \citep{GenJam1994} als künstlichen \textbf{Musikschüler},\\
 	\hfill der die Kunst der \textbf{Jazz-Improvisation} über beliebige Akkordfolgen lernt.
 	
 	\bigskip
@@ -807,8 +814,24 @@
 \end{frame}
 
 \begin{frame}[t]{VI. \dimSixTitle}{MuseBots}
-	\todo[inline]{TODO!}
-	
+	\centering
+	\begin{columns}
+		\begin{column}{0.1\textwidth}
+		\end{column}
+		\begin{column}{0.45\textwidth}
+			\underline{Idee}: einheitliches Protokoll zur Zusammenschaltung verschiedener musikalischer \emph{Agenten}
+			\bigskip
+			
+			\begin{quote}
+				\enquote{A musebot is here defined as a \textbf{piece of software that autonomously creates music collaboratively with other musebots}. Our project is concerned with putting together musebot ensembles} {\normalfont\citep{MuseBots}}
+			\end{quote}
+		\end{column}
+		\begin{column}{0.1\textwidth}
+		\end{column}
+		\begin{column}{0.6\textwidth}
+			\includegraphics[height=.7\textheight]{img/MuseBots_MC.png}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -854,9 +877,9 @@
 	\bigskip\medskip
 	\warnSign~Problematisch bei statistischen Erhebungen:\\
 	\smallskip
-	~~~\emph{Kategorische Ablehnung} (neg. bias) gegenüber KI-Musik\todo[inline]{Ansani et al. 2025; White et al. 2025; Shank et. al. 2023}%\\
+	~~~\emph{Kategorische Ablehnung} (negative bias) gegenüber KI-Musik \citep{AIComposerBias,AIPerformerBias}\\
 	\smallskip
-	\conclude~kann bereits bei Ankündigung/Bewerbung einer Studie problematisch sein
+	\hfill\conclude~kann bereits bei Ankündigung/Bewerbung einer Studie problematisch sein
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%
@@ -873,20 +896,44 @@
 	
 	Populäre Methoden:
 	\begin{itemize}
-		\item Variational Auto-Encoders (VAEs)\\
+		\item Variational Autoencoder (VAE)\\
 			\qquad\conclude~Encoder-Decoder-Struktur
-		\item Generative Adversarial Networks (GANs)\\
+		\item Generative Adversarial Network (GAN)\\
 			\qquad\conclude~Nullsummenspiel von Generator und Diskriminator
+		\item Diffusion Models\\
+			\qquad\conclude~Entrauschen eines zufälligen Initials
 		\item Transformer-Modelle\\
 		\qquad\conclude~eigenes Thema für ein ganzes Seminar...
 	\end{itemize}
 
-	\vfill\hfill \footnotesize $^*$etwa $10^6$--$10^9$ Neuronen
+	\hfill \footnotesize $^*$etwa $10^6$--$10^9$ Parameter
 \end{frame}
 
-\begin{frame}{Variational Auto-Encoder}{(VAE)}
-	\missingfigure{Show Neural network with bottleneck}
-	\includegraphics[width=0.49\textwidth]{img/MLP-Theorie.png}
+\begin{frame}{Variational Autoencoder}{(VAE)}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\underline{Autoencoder}:\\
+			\raggedleft
+			Jeder bekannte Datenpunkt = ein Punkt im \emph{latenten} Raum\\
+			\vspace{-.2cm}
+			\includegraphics[width=.9\textwidth]{img/MLP/MLP_autoencode.pdf}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\underline{Variational Autoencoder}:
+			\medskip
+			
+			\raggedleft
+			Jeder bekannte Datenpunkt = Verteilung im latenten Raum\\
+			\raggedright
+			\[z \sim \mathcal{N}(\mu(x), \sigma^2(x))\]
+			
+			Backpropagation wird ermöglicht durch \enquote{Reparametrization \underline{trick}}:\\
+			\[z = \mu(x) + \sigma(x) \cdot \epsilon\]
+			
+			$\mu$ und $\sigma$ werden gelernt\\
+			$\epsilon$ wird beim Training variiert
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}{Generative Adversarial Network}{(GAN)}
@@ -894,7 +941,26 @@
 	\includegraphics[width=0.7\textwidth]{img/GAN_template.png}
 	
 	\vfill
-	\hfill\scriptsize Bildquelle: \url{https://ijpds.org/article/view/2158}
+	\hfill\scriptsize Bildquelle: \url{https://doi.org/10.23889/ijpds.v8i1.2158}
+\end{frame}
+
+\begin{frame}[t]{Diffusion Models}
+	\vspace{-1cm}
+	\begin{center}
+		\includegraphics[width=\textwidth]{img/Diffusion/DiffusionModel.pdf}
+	\end{center}
+	\small
+	
+	Idee: Schrittweises \emph{Entrauschen} einer Zufallseingabe
+	\medskip
+	
+	$q$: Verrauschen des Datensatzes (Umkehrung unlösbar)\\
+	$p_\theta$: Geschätzte (gelernte) Entrauschungsfunktion (eng. \emph{denoising})
+	\medskip
+	
+	Besonders interessant: Teilweise Wiederherstellung \conclude~\enquote{Inpainting}
+	
+	\drawat{11.5cm,5.5cm}{\includegraphics[height=2.8cm]{img/librosa-feature-melspectrogram-1.png}}
 \end{frame}
 
 \begin{frame}{Deep Learning-Systeme}
@@ -902,7 +968,7 @@
 		\begin{itemize}
 			\item datenbasiert
 			\item stochastisch\\
-			~~~\conclude~{\small(deterministisch bei festem \emph{seed}; Stichwort: Pseudozufall)}
+			~~~\conclude~{\small(bei fester Eingabe deterministisch)}
 			\item (digitale) Darstellung hängt stark vom Datensatz ab\\
 			~~~\conclude~{\small Score oder Sound möglich}
 			\item (eher) nicht interaktiv
@@ -935,13 +1001,23 @@
 	\medskip
 	Prompt-basierte Modelle für Musik existieren, z.B. MusicLM \& StableAudio.\\ 
 	
-	\medskip
-	\hfill Spannend bleibt: \enquote{Was werden diese Systeme nicht lernen können?}\hspace{-.5cm}	
+	\bigskip
+	\hfill \underline{Spannend bleibt}: \enquote{Was werden diese Systeme nicht lernen können?}\hspace{-.5cm}	
 \end{frame}
 
-\begin{frame}
-	\todo[inline]{Suno \& Udio \conclude GEMA gewinnt Urheberrechtsstreit}
-	\missingfigure{Zeitungsartikel}
+\begin{frame}{Urheberrecht?}
+	\vspace{-.2cm}
+	\tiny
+	\begin{columns}
+		\begin{column}[t]{.5\textwidth}
+			\includegraphics[width=.96\textwidth]{img/Gema-wins-openai.png}
+			\url{https://www.gema.de/de/w/grundsatzurteil-gema-gegen-openai}
+		\end{column}
+		\begin{column}[t]{.5\textwidth}
+			\includegraphics[width=.88\textwidth]{img/Suno_AGB_Analyse.png}
+			\url{https://rieck-partner.de/musik/suno-ai-nutzungsbedingungen-urheberrecht-wem-gehoeren-ki-songs.html}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}[t]{Originalität wird zum Problem}{Reinforcement Learning with Human Feedback}
@@ -950,6 +1026,9 @@
 	\end{center}
 	\vspace{-3cm}
 	\hfill\conclude~Verhindert \emph{model collapse} \cite{?}
+	
+	\bigskip
+	\hfill(Idee ähnlich zu \emph{GenJam})
 \end{frame}
 
 \begin{frame}{Held Horizon (2025)}{AI–human co-creation experiment on composing for choir}

@@ -1,0 +1,126 @@
+\documentclass[border=10pt]{standalone}
+
+\usepackage{pgfplots}
+\usepackage{tikz}
+\pgfplotsset{compat=1.8}
+\usepgfplotslibrary{fillbetween} %for fill under curve
+
+\renewcommand{\vec}[1]{\textbf{#1}}
+
+
+
+
+\begin{document}
+
+    \begin{tikzpicture}[node distance=0.8cm]
+    	\small
+    	\usetikzlibrary{positioning, shapes.geometric, arrows}
+    	\def\myellipse{(0,0) ellipse (2cm and 1cm)}
+    	
+    	
+    	\tikzstyle{gkreis} = [circle, draw=black, fill=green!30]
+    	
+    	\tikzstyle{rkreis} = [circle, draw=black, fill=red!30]
+    	
+    	\tikzstyle{bkreis} = [circle, draw=black, fill=blue!30]
+    	
+    	\tikzstyle{arrow} = [thick,->,>=stealth]
+    	
+    	
+    	
+    		
+	   	\node [gkreis] (11) {};	
+    			\node[above=of 11, yshift=-0.75cm] (1) {$h^{(1)}$};
+    	\node [gkreis, below of=11] (12) {};
+    	\node [gkreis, below of=12] (13) {};
+    	\node [gkreis, below of=13] (14) {};
+    	
+			\node [rkreis, left=of 11, yshift=-0.45cm, xshift=-0.3cm] (01) {};
+			\node[above=of 01, yshift=-0.3cm] (0) {$\vec{x}$};
+			\node [rkreis, below=of 01, yshift=0.3cm] (02) {};
+			\node [rkreis, below=of 02, yshift=0.3cm] (03) {};
+    	
+	
+    	\node [gkreis, right=of 11, yshift=-0.45cm, xshift=0.3cm] (21) {};
+    		\node[above=of 21, yshift=-0.3cm] (2) {$h^{(2)}$};
+    	\node [gkreis, below=of 21, yshift=0.3cm] (22) {};
+    	\node [gkreis, below=of 22, yshift=0.3cm] (23) {};
+    
+    
+    	
+    	
+    	\node [gkreis, right=of 21] (31) {};
+    	\node[above=of 31, yshift=-0.3cm] (3) {$h^{(3)}$};
+    	\node [gkreis, below=of 31, yshift=0.3cm] (32) {};
+    	\node [gkreis, below=of 32, yshift=0.3cm] (33) {};
+    
+    
+    
+    	\node [bkreis, right=of 31, xshift=0.2cm, yshift=-.4cm] (41) {};
+    		\node[above=of 41, yshift=0.05cm] (4) {$\vec{y}$};
+    	\node [bkreis, below=of 41, yshift=0.3cm] (42) {};
+      	
+      	
+      	\draw[arrow] (01) -- (11);
+      	\draw[arrow] (01) -- (12);
+      	\draw[arrow] (01) -- (13);
+      	\draw[arrow] (01) -- (14);
+      	
+      	\draw[arrow] (02) -- (11);
+      	\draw[arrow] (02) -- (12);
+      	\draw[arrow] (02) -- (13);
+      	\draw[arrow] (02) -- (14);
+      	
+      	\draw[arrow] (03) -- (11);
+      	\draw[arrow] (03) -- (12);
+      	\draw[arrow] (03) -- (13);
+      	\draw[arrow] (03) -- (14);
+      
+      	
+      	
+    	\draw[arrow] (11) -- (21);
+    	\draw[arrow] (11) -- (22);
+    	\draw[arrow] (11) -- (23);
+    	
+    	\draw[arrow] (12) -- (21);
+    	\draw[arrow] (12) -- (22);
+    	\draw[arrow] (12) -- (23);
+    	
+    	\draw[arrow] (13) -- (21);
+    	\draw[arrow] (13) -- (22);
+    	\draw[arrow] (13) -- (23);
+    	
+    	\draw[arrow] (14) -- (21);
+    	\draw[arrow] (14) -- (22);
+    	\draw[arrow] (14) -- (23);
+    
+    
+    
+    
+    	\draw[arrow] (21) -- (31);
+    	\draw[arrow] (21) -- (32);
+    	\draw[arrow] (21) -- (33);
+    	    	
+    	\draw[arrow] (22) -- (31);
+    	\draw[arrow] (22) -- (32);
+    	\draw[arrow] (22) -- (33);
+    	
+    	\draw[arrow] (23) -- (31);
+		\draw[arrow] (23) -- (32);
+		\draw[arrow] (23) -- (33);    	
+		
+		
+		
+		\draw[arrow] (31) -- (41);
+		\draw[arrow] (31) -- (42);
+		
+		\draw[arrow] (32) -- (41);
+		\draw[arrow] (32) -- (42);
+		
+		\draw[arrow] (33) -- (41);
+		\draw[arrow] (33) -- (42);
+		
+		
+    \end{tikzpicture}
+
+\end{document}

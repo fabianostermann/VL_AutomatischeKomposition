@@ -1,0 +1,117 @@
+\documentclass[border=10pt]{standalone}
+
+\usepackage{pgfplots}
+\usepackage{tikz}
+\pgfplotsset{compat=1.8}
+\usepgfplotslibrary{fillbetween} %for fill under curve
+
+\renewcommand{\vec}[1]{\textbf{#1}}
+
+
+\begin{document}
+
+    \begin{tikzpicture}[node distance=0.8cm]
+    	\small
+    	\usetikzlibrary{positioning, shapes.geometric, arrows}
+    	\def\myellipse{(0,0) ellipse (2cm and 1cm)}
+    	
+    	
+    	\tikzstyle{gkreis} = [circle, draw=black, fill=green!30]
+    	
+    	\tikzstyle{rkreis} = [circle, draw=black, fill=red!30]
+    	
+    	\tikzstyle{bkreis} = [circle, draw=black, fill=blue!30]
+    	
+    	\tikzstyle{arrow} = [thick,->,>=stealth]
+    	
+    	
+    	\node[] (0)  at (0,0) {$\vec{x}$};
+    	\node [rkreis] (01) at (0,-0.5) {};
+    	\node [rkreis] (02) at (0,-1.5) {};
+    	\node [rkreis] (03) at (0,-2.5) {};
+    	\node [rkreis] (04) at (0,-3.5) {};
+    	\node[] (0)  at (0.5,-4) {\sffamily Encoder};
+    		
+    	\node[] (1) at (1,0) {$h^{(1)}$};
+	   	\node [gkreis] (11) at (1,-1) {};	
+    	\node [gkreis] (12)  at (1,-2) {};
+    	\node [gkreis] (13)  at (1,-3) {};
+	
+   		\node[] (2) at (2,0) {$h^{(2)}$};
+    	\node [gkreis] (21) at (2,-1.5) {};
+    	\node [gkreis] (22) at (2,-2.5) {};
+    	\node[] (2) at (2,-3) {$z$};
+    	
+    	\node[] (3) at (3,0) {$h^{(3)}$};
+    	\node [gkreis] (31) at (3,-1) {};
+    	\node [gkreis] (32) at (3,-2) {};
+    	\node [gkreis] (33) at (3,-3) {};
+    
+   		\node[] (4) at (4,0) {$\vec{x'}$};
+    	\node [bkreis] (41) at (4,-0.5) {};
+    	\node [bkreis] (42) at (4,-1.5) {};
+    	\node [bkreis] (43) at (4,-2.5) {};
+    	\node [bkreis] (44) at (4,-3.5) {};
+    	\node[] (0)  at (3.5,-4) {\sffamily Decoder};
+      	
+      	
+      	\draw[arrow] (01) -- (11);
+      	\draw[arrow] (01) -- (12);
+      	\draw[arrow] (01) -- (13);
+      	
+      	\draw[arrow] (02) -- (11);
+      	\draw[arrow] (02) -- (12);
+      	\draw[arrow] (02) -- (13);
+      	
+      	\draw[arrow] (03) -- (11);
+      	\draw[arrow] (03) -- (12);
+      	\draw[arrow] (03) -- (13);
+      	
+      	\draw[arrow] (04) -- (11);
+      	\draw[arrow] (04) -- (12);
+      	\draw[arrow] (04) -- (13);
+      
+      	
+      	
+    	\draw[arrow] (11) -- (21);
+    	\draw[arrow] (11) -- (22);
+    	
+    	\draw[arrow] (12) -- (21);
+    	\draw[arrow] (12) -- (22);
+    	
+    	\draw[arrow] (13) -- (21);
+    	\draw[arrow] (13) -- (22);
+    	
+    
+    
+    
+    
+    	\draw[arrow] (21) -- (31);
+    	\draw[arrow] (21) -- (32);
+    	\draw[arrow] (21) -- (33);
+    	    	
+    	\draw[arrow] (22) -- (31);
+    	\draw[arrow] (22) -- (32);
+    	\draw[arrow] (22) -- (33);
+		
+		
+		
+		\draw[arrow] (31) -- (41);
+		\draw[arrow] (31) -- (42);
+		\draw[arrow] (31) -- (43);
+		\draw[arrow] (31) -- (44);
+		
+		\draw[arrow] (32) -- (41);
+		\draw[arrow] (32) -- (42);
+		\draw[arrow] (32) -- (43);
+		\draw[arrow] (32) -- (44);
+		
+		\draw[arrow] (33) -- (41);
+		\draw[arrow] (33) -- (42);
+		\draw[arrow] (33) -- (43);
+		\draw[arrow] (33) -- (44);
+		
+		
+    \end{tikzpicture}
+
+\end{document}

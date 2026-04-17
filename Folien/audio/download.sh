@@ -12,3 +12,7 @@ yt-dlp -x https://www.youtube.com/watch?v=cuq4smO_4Js -o Lejaren_Hiller_-_Illiac
 yt-dlp -x https://www.youtube.com/watch?v=QyqiSbbwHIs -o Lejaren_Hiller_-_Illiac_Suite_for_String_Quartet_4of4 --audio-format mp3
 
 yt-dlp -x https://www.youtube.com/watch?v=KV3V3c8mqGs -o Gary_Lee_Nelson_-_Fractal_Mountains --audio-format mp3
+
+git clone https://github.com/lpensel/multiply-surrender.git
+mv multiply-surrender/Markov_Music/Results/ Markov_Music
+rm -r multiply-surrender
