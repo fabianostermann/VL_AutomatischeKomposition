@@ -64,6 +64,8 @@
 \usepackage{amssymb}
 \usepackage{multimedia}
 
+\usepackage{verbatim}
+
 %%%%%% simple audio player that triggers default media player (e.g. vlc)
 % former on symbol: \raisebox{1pt}{$\blacktriangleright$}
 % former off symbol: $\blacksquare$
@@ -88,11 +90,13 @@
 \fi
 
 
-\title{\vspace{-2cm}\newline\includegraphics[height=0.08\textheight]{logos/TU_Dortmund.jpg}\hspace{0.46\textwidth}\includegraphics[height=0.08\textheight]{logos/fi_logo_german.png}\vspace{0.5cm}\newline\thetitle}
+\title{%\vspace{-2cm}\newline\includegraphics[height=0.08\textheight]{logos/TU_Dortmund.jpg}\hspace{0.46\textwidth}\includegraphics[height=0.08\textheight]{logos/fi_logo_german.png}\vspace{0.5cm}\newline
+\vspace{-5cm}\newline\includegraphics[height=0.33\textheight]{img/Romanesco_broccoli.jpg}\hspace{0.42\textwidth}\includegraphics[height=0.65\textheight]{img/MIDI-numbers.jpg}\vspace{-6.5cm}\newline
+	\thetitle}
 \author{\theauthor}
 % insert correct institute name
 %\email{fabian.ostermann@tu-dortmund.de}
-\date{\small\thedate}
+\date{\small\thedate\\\medskip\audioplayer{audio/speakertest.mp3}\vspace{-1cm}}
 \institute{\theinstitute}
 \subtitle{\vspace{0.25cm}\thesubtitle\vspace{-0.25cm}}
 %\titlegraphic{}
@@ -130,7 +134,7 @@ gridunit=mm,gridcolor=black!10,subgridcolor=black!5,gridBG=false]{eso-pic}
 
 %%%%% Kommando für automatisch einblendendes Inhaltsverzeichnis am Anfang jeder Section
 \newcommand{\toc}[1][currentsection]{
-	\begin{frame}{Übersicht}
+	\begin{frame}{Content}
 		\only<1>{\tableofcontents[]}
 		\only<2->{\tableofcontents[#1]}
 	\end{frame}
